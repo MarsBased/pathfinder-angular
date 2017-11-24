@@ -1,5 +1,5 @@
 {
   "extends": [
-    "marstyle-typescript"
+    "@marsbased/marstyle-typescript"
   ]
 }

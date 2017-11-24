@@ -1,21 +1,19 @@
-import { TestBed, async } from '@angular/core/testing';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-
+import { TestBed, async } from '@angular/core/testing';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import { AppComponent } from './app.component';
-import { LanguageService } from './services/language.service';
-import { AppConfig } from './app.config';
-
+import { AppConfig } from './../../app.config';
+import { LanguageService } from './../../services/language.service';
+import { NotFoundPageComponent } from './not-found-page.component';
 
 // AoT requires an exported function for factories
-export function HttpLoaderFactory(http: HttpClient) {
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
 
-describe('AppComponent', () => {
+describe('NotFoundPageComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -32,27 +30,22 @@ describe('AppComponent', () => {
         LanguageService
       ],
       declarations: [
-        AppComponent
-      ],
+        NotFoundPageComponent
+      ]
     }).compileComponents();
   }));
 
-  it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
+  it('should create the component', async(() => {
+    const fixture = TestBed.createComponent(NotFoundPageComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
 
-  it(`should have correct apiUrl`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.apiUrl).toEqual(AppConfig.environment.apiURL);
-  }));
-
-  it('should render correct apiUrl', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
+  it('should render not found text', async(() => {
+    const fixture = TestBed.createComponent(NotFoundPageComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.apiUrl').textContent).toContain(AppConfig.environment.apiURL);
+    expect(compiled.querySelector('.not-found__title').textContent)
+      .toBeDefined();
   }));
 });
