@@ -7,8 +7,8 @@ describe('pathfinder-angular App', () => {
     page = new PathfinderAngularPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display main page text', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Hello World!');
+    expect(page.getParagraphText()).toEqual('Main Page');
   });
 });

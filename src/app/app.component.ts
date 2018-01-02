@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 
-import { AppConfig } from './app.config';
 import { LanguageService } from './services/language.service';
 
 @Component({

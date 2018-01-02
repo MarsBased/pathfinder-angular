@@ -22,12 +22,12 @@ export class LanguageService {
   }
 
   // We retrieve and check user preferred language, we use it if is available
-  initLanguage() {
+  initLanguage(): void {
     this.setDefaultLang();
     this.promiseCurrentLang = this.setUserLang();
   }
 
-  private setDefaultLang() {
+  private setDefaultLang(): void {
     this.translate.setDefaultLang(AppConfig.i18n.default);
   }
 
