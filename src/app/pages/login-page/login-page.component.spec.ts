@@ -4,7 +4,6 @@ import { TestBed, async } from '@angular/core/testing';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import { AppConfig } from './../../app.config';
 import { LanguageService } from './../../services/language.service';
 import { LoginPageComponent } from './login-page.component';
 
